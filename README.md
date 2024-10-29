@@ -14,4 +14,5 @@
 Число 15 делится и на 3 и на 5, поэтому заменяется на fizzbuzz
 <div>Результат для числа 30 представлен ниже:</div>
 <div><img /></div>
-<img src="https://github.com/user-attachments/assets/e01df903-698a-4362-a089-3885cd644ab8" width="997" height="542" />
+
+![Result_l](https://github.com/user-attachments/assets/0ad139ba-4d07-48c5-b94e-db88a3963e44)
