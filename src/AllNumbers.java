@@ -33,7 +33,7 @@ public class AllNumbers {
             } else {
                 System.out.println(i);
             }
-        } // version git-hub
+        }
 
     }
 }
