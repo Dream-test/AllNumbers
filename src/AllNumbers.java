@@ -1,39 +1,45 @@
+import java.math.BigInteger;
 import java.util.Scanner;
 
 public class AllNumbers {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int number = -1;
+        BigInteger numberToConsist;
+        System.out.println("Enter any positive integer");
         while (true) {
-            System.out.println("Enter number from 10 to 30");
-            if (in.hasNextInt()) {
-                number = in.nextInt();
-                if (number >= 10 && number <= 30) {
-                    break;
-                } else {
-                    System.out.println("Error: Please enter a number between 10 and 30");
-                }
+            String input = in.nextLine();
+            if (input.matches("\\d+")) {
+                numberToConsist = new BigInteger(input);
+                break;
             } else {
-                    System.out.println("Error: Please enter a valid Integer");
-                    in.next();
+                System.out.println("Error: Please enter only numbers");
             }
         }
-
         in.close();
+        printToNumber(numberToConsist);
 
-        for (int i = 0; i <= number; i++) {
-            if (i == 0) {
-                System.out.println(i);
-            } else if (i % 3 == 0 && i % 5 == 0) {
-                System.out.println("fizzbuzz");
-            } else if (i % 3 == 0) {
-                System.out.println("fizz");
-            } else if (i % 5 == 0) {
-                System.out.println("buzz");
-            } else {
-                System.out.println(i);
-            }
-        }
-
-    }
 }
+    private static void printToNumber(BigInteger numberToConsist) {
+        BigInteger index = BigInteger.ZERO;
+        BigInteger numberThree = new BigInteger("3");
+        BigInteger numberFive = new BigInteger("5");
+
+        while (index.compareTo(numberToConsist) <= 0) {
+            BigInteger remainderThree = index.remainder(numberThree);
+            BigInteger remainderFive = index.remainder(numberFive);
+            if (index.compareTo(BigInteger.ZERO) == 0) {
+                System.out.print(index);
+            } else if (remainderThree.compareTo(BigInteger.ZERO) == 0 && remainderFive.compareTo(BigInteger.ZERO) == 0) {
+                System.out.print(" fizzbuzz");
+            } else if (remainderThree.compareTo(BigInteger.ZERO) == 0) {
+                System.out.print(" fizz");
+            } else if (remainderFive.compareTo(BigInteger.ZERO) == 0) {
+                System.out.print(" buzz");
+            } else {
+                System.out.print(" " + index);
+            }
+            index = index.add(BigInteger.ONE);
+
+        }
+    }
+    }
