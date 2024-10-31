@@ -16,30 +16,32 @@ public class AllNumbers {
             }
         }
         in.close();
-        printToNumber(numberToConsist);
+        System.out.println(printToNumber(numberToConsist));
 
 }
-    private static void printToNumber(BigInteger numberToConsist) {
+    public static String printToNumber(BigInteger numberToConsist) {
         BigInteger index = BigInteger.ZERO;
-        BigInteger numberThree = new BigInteger("3");
-        BigInteger numberFive = new BigInteger("5");
+        BigInteger threeNumber = new BigInteger("3");
+        BigInteger fiveNumber = new BigInteger("5");
 
+        StringBuilder builder = new StringBuilder();
         while (index.compareTo(numberToConsist) <= 0) {
-            BigInteger remainderThree = index.remainder(numberThree);
-            BigInteger remainderFive = index.remainder(numberFive);
+            BigInteger remainderThree = index.remainder(threeNumber);
+            BigInteger remainderFive = index.remainder(fiveNumber);
             if (index.compareTo(BigInteger.ZERO) == 0) {
-                System.out.print(index);
+                builder.append(index);
             } else if (remainderThree.compareTo(BigInteger.ZERO) == 0 && remainderFive.compareTo(BigInteger.ZERO) == 0) {
-                System.out.print(" fizzbuzz");
+                builder.append(" fizzbuzz");
             } else if (remainderThree.compareTo(BigInteger.ZERO) == 0) {
-                System.out.print(" fizz");
+                builder.append(" fizz");
             } else if (remainderFive.compareTo(BigInteger.ZERO) == 0) {
-                System.out.print(" buzz");
+                builder.append(" buzz");
             } else {
-                System.out.print(" " + index);
+                builder.append(" " + index);
             }
             index = index.add(BigInteger.ONE);
 
         }
+        return builder.toString();
     }
     }
