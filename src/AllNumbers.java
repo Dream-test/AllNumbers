@@ -16,7 +16,7 @@ public class AllNumbers {
             }
         }
         in.close();
-        System.out.println(printToNumber(numberToConsist));
+        System.out.println(printToNumber(numberToConsist).trim());
 
 }
     public static String printToNumber(BigInteger numberToConsist) {
@@ -28,7 +28,7 @@ public class AllNumbers {
         while (index.compareTo(numberToConsist) <= 0) {
             BigInteger remainderThree = index.remainder(threeNumber);
             BigInteger remainderFive = index.remainder(fiveNumber);
-            if (index.compareTo(BigInteger.ZERO) == 0) {
+            if (index.equals(BigInteger.ZERO)) {
                 builder.append(index);
             } else if (remainderThree.compareTo(BigInteger.ZERO) == 0 && remainderFive.compareTo(BigInteger.ZERO) == 0) {
                 builder.append(" fizzbuzz");
@@ -37,7 +37,7 @@ public class AllNumbers {
             } else if (remainderFive.compareTo(BigInteger.ZERO) == 0) {
                 builder.append(" buzz");
             } else {
-                builder.append(" " + index);
+                builder.append(" ").append(index);
             }
             index = index.add(BigInteger.ONE);
 
